@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cmdb/', include('CMDB.urls')),
+    path('', include(('Devops.urls', 'Devops'), namespace='Devops')),
 ]

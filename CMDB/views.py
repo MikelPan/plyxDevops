@@ -13,13 +13,14 @@ from . models import Project
 
 
 def index(request):
-    return HttpResponse("Hello world")
+    # return HttpResponse("Hello world")
+    return render(request, 'index.html')
 
 def server(request, server_id):
     return HttpResponse("server number is %s" % server_id)
 
 def project(request):
-    project_name_list = Project.objects.order_by('id')
+    project_name_list = Project.objects.order_by('id')[:3]
     project_name = {'project_name_list': project_name_list}
     return render(request, 'CMDB/project.html', project_name)
 
