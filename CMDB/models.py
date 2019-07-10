@@ -56,9 +56,24 @@ class Asset(models.Model):
         return '%s-%s' % (self.get_asset_type_display(), self.name)
 
     class Meta:
+        table_name = 'assent'
         verbose_name = '资产总表'
         verbose_name_plural = "资产总表"
         ordering = ['-c_time']
 
+class Server(models.Model):
+    """定义服务器设备"""
+
+    sub_asset_type_choice = (
+        (0, 'PC服务器'),
+        (1, '刀片机'),
+        (2, '小型机'),
+        (3, '塔式服务器'),
+    )
+
+    created_by_choice = (
+        ('auto', '自动添加'),
+        ('manual', '手工录入'),
+    )
 
 
